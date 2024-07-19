@@ -36,7 +36,7 @@ targets:
 
   prod:
     workspace:
-      host: https://your-prod-workspace.cloud.databricks.com
+      host: https://dbc-c39b2ad9-5956.cloud.databricks.com/
 
   test:
     workspace:
