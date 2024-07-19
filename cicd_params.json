@@ -6,7 +6,7 @@
   "input_release_branch": "release",
   "cloud_specific_node_type_id": "v0.221.0",
   "input_cli_version": "v0.221.0",
-  "test_catalog_name": "test",
-  "staging_catalog_name": "staging",
-  "prod_catalog_name": "prod"
+  "test_catalog_name": "auxmoney_databricks_poc",
+  "staging_catalog_name": "auxmoney_databricks_poc",
+  "prod_catalog_name": "auxmoney_databricks_poc"
 }
