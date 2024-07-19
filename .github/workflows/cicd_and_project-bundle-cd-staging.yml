@@ -14,8 +14,8 @@ defaults:
   run:
     working-directory: ./cicd_and_project
 
-env:
-  DATABRICKS_TOKEN: ${{ secrets.STAGING_WORKSPACE_TOKEN }}
+# env:
+#  DATABRICKS_TOKEN: ${{ secrets.STAGING_WORKSPACE_TOKEN }}
 
 jobs:
   staging:
