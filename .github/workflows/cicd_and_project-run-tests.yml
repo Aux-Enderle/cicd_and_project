@@ -18,6 +18,7 @@ concurrency: cicd_and_project-training-integration-test-staging
 jobs:
   unit_tests:
     runs-on: ubuntu-latest
+    environment: DATABRICKS_TOKEN
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v5
@@ -35,6 +36,7 @@ jobs:
   integration_test:
     needs: unit_tests
     runs-on: ubuntu-latest
+    environment: DATABRICKS_TOKEN
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3

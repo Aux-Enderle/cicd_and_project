@@ -21,6 +21,7 @@ jobs:
   staging:
     concurrency: cicd_and_project-staging-bundle-job
     runs-on: ubuntu-latest
+    environment: DATABRICKS_TOKEN
     steps:
       - uses: actions/checkout@v3
       - uses: databricks/setup-cli@v0.221.0
