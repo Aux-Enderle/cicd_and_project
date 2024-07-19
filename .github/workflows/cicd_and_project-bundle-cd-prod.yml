@@ -1,0 +1,34 @@
+# This GitHub workflow deploys Bundle resources (ML resource config and more)
+# defined under cicd_and_project/resources/*
+# and cicd_and_project/databricks.yml with prod deployment target configs,
+# when PRs are merged into the release branch
+name: Bundle Deployment for cicd_and_project Prod
+
+on:
+  push:
+    branches:
+      - 'release'
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./cicd_and_project
+
+env:
+  DATABRICKS_TOKEN: ${{ secrets.PROD_WORKSPACE_TOKEN }}
+
+jobs:
+  prod:
+    concurrency: cicd_and_project-prod-bundle-job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: databricks/setup-cli@v0.221.0
+      - name: Validate Bundle For Prod
+        id: validate
+        run: |
+          databricks bundle validate -t prod
+      - name: Deploy Bundle to Prod
+        id: deploy
+        run: |
+          databricks bundle deploy -t prod
